@@ -1,0 +1,45 @@
+<div class="container-fluid py-3">
+  <h1>Angular Progressive Web Application (PWA)</h1>
+
+  <div class="row my-5">
+    <div class="col text-end">
+      Status:
+    </div>
+    <div class="col">
+      <span class="badge bg-success" *ngIf="isOnline">Online</span>
+      <span class="badge bg-danger" *ngIf="!isOnline">Offline</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- <div *ngIf="digimon$ | async as digimons">
+  Digimons
+  <p>NUmber of digimons: {{ digimons.length }}</p>
+
+  <ul>
+    <li *ngFor="let digimon of digimons">
+      {{ digimon.name }}
+    </li>
+  </ul>
+</div> -->
+
+
+<div class="container">
+  <div class="row">
+    <h2>{{ currentMessage$ | async }}</h2>
+    <h1>{{ numbers}}</h1>
+    <h1>{{selectedFieldId$ | async}} | {{selectedFieldId2$ | async}}</h1>
+  </div>
+  <div class="row" *ngFor="let row of y; index as i;">
+      <div class="col-md p-5 m-1 bg-primary text-center" #flipCard attr.data-hideNumber="{{numbers[y.length*i+col]}}" style="width: 100px; height: 100px" id="flipCard{{row}}{{col}}" *ngFor="let col of x"  (click)="cardClock((row),(col),flipCard)">
+        <span *ngIf="flipCard.classList.contains('bg-success')">
+          {{ numbers[y.length*i+col] }}
+        </span>
+        <span *ngIf="((selectedFieldId$ | async) == 'flipCard'+row+''+col || (selectedFieldId2$ | async) == 'flipCard'+row+''+col) && !flipCard.classList.contains('bg-success')">
+          {{ numbers[y.length*i+col] }}
+        </span>
+      </div>
+      
+  </div>
+</div>
