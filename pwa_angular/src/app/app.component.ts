@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject,lastValueFrom,  from, Observable, of, Subject } from 'rxjs';
-import { switchMap, startWith, map, filter } from 'rxjs/operators';
-import {SwUpdate, ServiceWorkerModule} from '@angular/service-worker';
+import { BehaviorSubject,  from, Observable, Subject } from 'rxjs';
+import { switchMap, startWith, map } from 'rxjs/operators';
+import {SwUpdate} from '@angular/service-worker';
 import { PalyaService } from './services/palya.servie';
 import {ClassColors} from './services/classColors';
 import { Score } from './models/score';

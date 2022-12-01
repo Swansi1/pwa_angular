@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
-import { from, Observable, ReplaySubject, Subject, BehaviorSubject, pipe, of, catchError } from 'rxjs';
-import { switchMap, filter, map, flatMap } from 'rxjs/operators';
-import { Digimon } from '../models/digimon';
+import {  Observable, Subject, BehaviorSubject, of } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 import { Score } from '../models/score';
-import { Selected } from '../models/selected';
 import { ClassColors } from './classColors';
 
 @Injectable({
