@@ -1,38 +1,34 @@
-<div class="container-fluid py-3">
-  <h1>Angular Progressive Web Application (PWA)</h1>
 
-  <div class="row my-5">
-    <div class="col text-end">
-      Status:
+<div class="container mb-5">
+  <div class="row">
+    <div class="col-md">
+        <h1 class="text-center">Legjobb PWA-s játék by Zrinyi Patrik</h1>
     </div>
-    <div class="col">
-      <span class="badge bg-success" *ngIf="isOnline">Online</span>
-      <span class="badge bg-danger" *ngIf="!isOnline">Offline</span>
+  </div>
+</div>
+<div class="container" *ngIf="(username$ | async) == null">
+  <!-- {{username$ | async}} -->
+  <div class="row justify-content-center">
+    <div class="col-md-6 form-group">
+      <h2>Add meg a felhasználónevedet</h2>
+      <input type="text" name="username" id="username" #usernameField class="form-control">
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <button class="btn btn-success btn-block" (click)="gamestart(usernameField.value)">Játék indítása</button>
     </div>
   </div>
 </div>
 
 
-<!-- <div *ngIf="digimon$ | async as digimons">
-  Digimons
-  <p>NUmber of digimons: {{ digimons.length }}</p>
-
-  <ul>
-    <li *ngFor="let digimon of digimons">
-      {{ digimon.name }}
-    </li>
-  </ul>
-</div> -->
-
-
-<div class="container">
-  <div class="row">
+<div class="container" *ngIf="username$ | async as unames">
+  <div class="row" *ngIf="unames != null">
+    <h2>Üdvözöllek {{unames}} jó játékot!</h2>
     <h2>{{ currentMessage$ | async }}</h2>
-    <h1>{{ numbers}}</h1>
-    <h1>{{selectedFieldId$ | async}} | {{selectedFieldId2$ | async}}</h1>
   </div>
   <div class="row" *ngFor="let row of y; index as i;">
-      <div class="col-md p-5 m-1 bg-primary text-center" #flipCard attr.data-hideNumber="{{numbers[y.length*i+col]}}" style="width: 100px; height: 100px" id="flipCard{{row}}{{col}}" *ngFor="let col of x"  (click)="cardClock((row),(col),flipCard)">
+      <div class="col-sm p-5 m-1 rounded bg-primary text-center" #flipCard attr.data-hideNumber="{{numbers[y.length*i+col]}}" style="width: 100px; height: 100px" id="flipCard{{row}}{{col}}" *ngFor="let col of x"  (click)="cardClock((row),(col),flipCard)">
         <span *ngIf="flipCard.classList.contains('bg-success')">
           {{ numbers[y.length*i+col] }}
         </span>
@@ -40,6 +36,16 @@
           {{ numbers[y.length*i+col] }}
         </span>
       </div>
-      
+  </div>
+  <div *ngIf="teszt | async as scores">
+    <h4 class="text-center">Előzményeid ({{scores.length }} db)</h4>
+    <div class="row justify-content-center">
+      <div class="col-md-6 font-weight-bold">Hány kattintás</div>
+      <div class="col-md-6 font-weight-bold">Mikor</div>
+    </div>
+    <div class="row justify-content-center" *ngFor="let score of scores">
+      <div class="col-md-6">{{score.click}}</div>
+      <div class="col-md-6">{{score.date}}</div>
+    </div>
   </div>
 </div>

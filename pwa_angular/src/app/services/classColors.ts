@@ -1,6 +1,6 @@
 export enum ClassColors {
-    default = "col-md p-5 m-1 text-center bg-primary",
-    selected = "col-md p-5 m-1 text-center bg-warning",
-    notMatch = "col-md p-5 m-1 text-center bg-danger",
-    match = "col-md p-5 m-1 text-center bg-success"
+    default = "col-sm p-5 m-1 text-center rounded bg-primary",
+    selected = "col-sm p-5 m-1 text-center rounded bg-warning",
+    notMatch = "col-sm p-5 m-1 text-center rounded bg-danger",
+    match = "col-sm p-5 m-1 text-center rounded bg-success"
   }
